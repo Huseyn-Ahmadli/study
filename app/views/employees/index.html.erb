@@ -12,7 +12,7 @@
     }
 </style>
 
-<p style="color: green"><%= notice %></p>
+
 
 <h1>Employees</h1>
 <table class="table table-bordered table-striped" style="text-align:center">
@@ -37,7 +37,7 @@
  <td><%= employee.position %></td>
   <td><%= link_to "Show", employee %></td>
   <td><%= link_to "Edit", edit_employee_path(employee) %></td>
-  <td><%= button_to "Delete", employee,method: :delete %></td>
+  <td> <%= button_to("Delete", employee, {:onclick => "return confirm('Are you sure?')", :method => :delete, :remote => true}) %></td>
 </tr>
 <% end %>
 </tbody>
@@ -45,4 +45,4 @@
 
 
 
-<%= link_to "New employee", new_employee_path %>
+<%= link_to "New employee", new_employee_path,class:"btn btn-secondary" %>
