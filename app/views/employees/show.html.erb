@@ -1,10 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<style>
+    .jumbotron {
+        padding: 2rem 1em;
+        margin-bottom: 2rem;
+        background-color: #e9ecef;
+        border-radius: .3rem;
+    }
+</style>
 
-<%= render @employee %>
+<div class="jumbotron">
+  <h1 class="display-4">
+    <%=@employee.first_name%>
+    <%=@employee.last_name%>
+    <h3><%=@employee.position%></h3>
+  </h1>
+<p class="lead">
+ Email: <%= @employee.email%> | Phone: <%= @employee.phone%>
+</p>
+  <%= link_to "Edit", edit_employee_path(@employee),class:"btn btn-secondary" %>
+  <%= link_to "Back", employees_path,class:"btn btn-dark" %>
+</div>
 
 <div>
-  <%= link_to "Edit this employee", edit_employee_path(@employee) %> |
-  <%= link_to "Back to employees", employees_path %>
 
-  <%= button_to "Destroy this employee", @employee, method: :delete %>
+
+  <%#= button_to "Destroy this employee", @employee, method: :delete %>
 </div>
